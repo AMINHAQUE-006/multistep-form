@@ -22,28 +22,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useAppSelector, useAppDispatch } from '@/hooks/redux';
 import { selectAllFormData, resetForm, setCurrentStep } from '@/store/slices/formSlice';
 import { previewStyles as styles, pageStyles } from '@/styles/formStyles';
+import SectionHeader from '../ui/SectionHeader';
+import Field from '../ui/Field';
 
-// ─── Sub-component: a single label+value field ────────────────────────────────
-function Field({ label, value }: { label: string; value: React.ReactNode }) {
-  return (
-    <Box>
-      <Typography sx={styles.fieldLabel}>{label}</Typography>
-      <Typography sx={styles.fieldValue}>{value || '—'}</Typography>
-    </Box>
-  );
-}
-
-// ─── Sub-component: section header with icon ─────────────────────────────────
-function SectionHeader({ icon, title }: { icon: React.ReactNode; title: string }) {
-  return (
-    <Box sx={styles.sectionHeader}>
-      <Box sx={{ color: 'primary.main' }}>{icon}</Box>
-      <Typography variant="h6" sx={styles.sectionTitle}>
-        {title}
-      </Typography>
-    </Box>
-  );
-}
 
 export default function PreviewPage() {
   const router = useRouter();
@@ -51,7 +32,6 @@ export default function PreviewPage() {
   const allData = useAppSelector(selectAllFormData);
   const { step1, step2, step3 } = allData;
 
-  // Guard: if Redux was wiped (page refresh), send back to form
   useEffect(() => {
     if (!step1.firstName) {
       router.replace('/form');
@@ -70,10 +50,11 @@ export default function PreviewPage() {
 
   if (!step1.firstName) return null;
 
+  
   return (
+    // Sucess banner on all step completed
     <Box sx={pageStyles.root}>
       <Box sx={pageStyles.container}>
-        {/* Success banner */}
         <Box
           sx={{
             display: 'flex',
@@ -97,7 +78,7 @@ export default function PreviewPage() {
           </Box>
         </Box>
 
-        {/* ── Step 1: Personal Details ──────────────────────────────────── */}
+        {/* Step 1 Preview: Personal Details */}
         <Card sx={{ p: { xs: 3, md: 4 }, mb: 3 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <SectionHeader icon={<PersonIcon />} title="Personal Details" />
@@ -132,7 +113,7 @@ export default function PreviewPage() {
           </Box>
         </Card>
 
-        {/* ── Step 2: Professional Information ──────────────────────────── */}
+        {/* ── Step 2 Preview: Professional Information */}
         <Card sx={{ p: { xs: 3, md: 4 }, mb: 3 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <SectionHeader icon={<WorkIcon />} title="Professional Information" />
@@ -223,7 +204,7 @@ export default function PreviewPage() {
           )}
         </Card>
 
-        {/* ── Step 3: Additional Details ─────────────────────────────────── */}
+        {/* ── Step 3 Preview: Additional Details  */}
         <Card sx={{ p: { xs: 3, md: 4 }, mb: 4 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <SectionHeader icon={<InfoIcon />} title="Additional Details" />
@@ -339,6 +320,7 @@ export default function PreviewPage() {
             variant="contained"
             size="large"
             sx={{ textTransform: 'none', px: 5 }}
+            // TODO: instead of alert use API Handler
             onClick={() => alert('Form would be submitted to the API here!')}
           >
             Submit Application
