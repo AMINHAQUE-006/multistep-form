@@ -8,7 +8,6 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      // Allow non-serializable values like File objects in form data
       serializableCheck: false,
     }),
 });

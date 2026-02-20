@@ -1,15 +1,7 @@
-// src/validation/schemas.ts
-// All Yup schemas live here — completely separated from UI and form logic.
-// Each step has its own schema. This makes it easy to maintain independently.
-//
-// WHY YUP?
-//   - Schema-based: define rules once, validate anywhere
-//   - Works perfectly with react-hook-form via @hookform/resolvers/yup
-//   - Gives rich, composable validation with clear error messages
 
 import * as yup from 'yup';
 
-// ─── Step 1: Personal Details ─────────────────────────────────────────────────
+// ─── Step 1: Personal Details 
 
 export const step1Schema = yup.object({
   firstName: yup
@@ -45,7 +37,7 @@ export const step1Schema = yup.object({
     .required('Please select a gender'),
 });
 
-// ─── Step 2: Professional Information ────────────────────────────────────────
+// ─── Step 2: Professional Information 
 
 export const step2Schema = yup.object({
   jobTitle: yup
@@ -85,7 +77,7 @@ export const step2Schema = yup.object({
     .required('Please select an option'),
 });
 
-// ─── Step 3: Additional Details ───────────────────────────────────────────────
+// ─── Step 3: Additional Details 
 
 export const step3Schema = yup.object({
   shortBio: yup

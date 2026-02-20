@@ -1,9 +1,3 @@
-// src/store/slices/formSlice.ts
-// Stores form data globally so navigating back to a previous step
-// restores all previously entered values — required by the assignment.
-//
-// Each step dispatches its validated data here before moving forward.
-
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { FormData, Step1Data, Step2Data, Step3Data } from '@/types';
 import type { RootState } from '@/store';

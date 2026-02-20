@@ -39,7 +39,7 @@ export interface UsersApiResponse {
   limit: number;
 }
 
-// ─── Form Data Types ──────────────────────────────────────────────────────────
+// ─── Form Data Types 
 
 export type Gender = 'male' | 'female' | 'other';
 
@@ -77,7 +77,7 @@ export interface FormData {
   step3: Step3Data;
 }
 
-// ─── Step Meta ────────────────────────────────────────────────────────────────
+// ─── Step Meta 
 
 export interface StepConfig {
   id: number;
