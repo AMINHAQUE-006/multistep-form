@@ -29,8 +29,7 @@ export function Step1() {
   const savedData = useAppSelector(selectStep1Data);
 
   const methods = useForm<Step1FormValues>({
-    resolver: yupResolver(step1Schema),
-    // Pre-populate from Redux (persists data when navigating back)
+    resolver: yupResolver<Step1FormValues>(step1Schema),
     defaultValues: savedData,
     mode: 'onBlur',
   });
