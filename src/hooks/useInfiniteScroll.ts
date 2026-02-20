@@ -1,13 +1,3 @@
-// src/hooks/useInfiniteScroll.ts
-// Generic infinite scroll hook.
-// Used by BOTH the Products dropdown (Step 2) and Users dropdown (Step 3).
-// Takes a fetch function, returns paginated data + loading state + a ref
-// that triggers loading more when it enters the viewport (IntersectionObserver).
-//
-// USAGE:
-//   const { items, isLoading, hasMore, loaderRef } = useInfiniteScroll(fetchProducts);
-//   // Attach loaderRef to a sentinel div at the bottom of your list
-
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';

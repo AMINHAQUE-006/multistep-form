@@ -1,7 +1,3 @@
-// src/components/steps/Step2.tsx
-// Step 2: Professional Information
-// Fields: Job Title, Experience Level (product dropdown), Skills (dynamic), Remote toggle
-
 'use client';
 
 import { useForm, Controller, FormProvider } from 'react-hook-form';
