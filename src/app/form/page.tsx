@@ -1,6 +1,3 @@
-// src/app/form/page.tsx
-// The main form page. Renders the correct step based on Redux currentStep.
-// Step data is persisted in Redux — navigating back restores all values.
 
 'use client';
 

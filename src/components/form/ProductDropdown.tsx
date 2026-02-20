@@ -1,10 +1,3 @@
-// src/components/form/ProductDropdown.tsx
-// Single-select dropdown with infinite scroll for the Experience Level field.
-// Fetches from https://dummyjson.com/products
-//
-// Each item displays: thumbnail image + title + category + price
-// Loads more items as user scrolls to bottom of list (IntersectionObserver).
-
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
@@ -59,15 +52,12 @@ export function ProductDropdown({ value, onChange, error }: ProductDropdownProps
     }
   }, [isLoading]);
 
-  // Initial load when dropdown opens
   useEffect(() => {
     if (open && items.length === 0) {
       loadMore(0, []);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
-  // IntersectionObserver on sentinel div at bottom of list
   useEffect(() => {
     if (!open || !sentinelRef.current) return;
 
@@ -82,10 +72,8 @@ export function ProductDropdown({ value, onChange, error }: ProductDropdownProps
 
     observerRef.current.observe(sentinelRef.current);
     return () => observerRef.current?.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, hasMore, isLoading, page, items]);
 
-  // Close on outside click
   useEffect(() => {
     const handleOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -183,7 +171,7 @@ export function ProductDropdown({ value, onChange, error }: ProductDropdownProps
             );
           })}
 
-          {/* Loading indicator */}
+          {/* Loading till data being fetched */}
           {isLoading && (
             <Box sx={styles.loader}>
               <CircularProgress size={24} />
@@ -193,7 +181,6 @@ export function ProductDropdown({ value, onChange, error }: ProductDropdownProps
             </Box>
           )}
 
-          {/* Sentinel div — triggers IntersectionObserver */}
           <div ref={sentinelRef} style={{ height: 1 }} />
 
           {!hasMore && items.length > 0 && (

@@ -1,8 +1,3 @@
-// src/components/form/GenderSelect.tsx
-// Card-style gender selector — required by assignment spec.
-// Each option is a clickable card, not a radio button.
-// Integrates with react-hook-form via Controller.
-
 'use client';
 
 import Box from '@mui/material/Box';

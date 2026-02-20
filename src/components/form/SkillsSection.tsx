@@ -1,8 +1,3 @@
-// src/components/form/SkillsSection.tsx
-// Dynamic skills list — user can add/remove skill entries.
-// Each entry has: Skill Name + Years of Experience.
-// Uses react-hook-form's useFieldArray for proper array management.
-
 'use client';
 
 import Box from '@mui/material/Box';
@@ -24,8 +19,6 @@ export function SkillsSection() {
     control,
   } = useFormContext<Step2FormValues>();
 
-  // useFieldArray manages dynamic arrays in react-hook-form
-  // It gives us: fields (current items), append, remove
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'skills',

@@ -1,10 +1,3 @@
-// src/components/form/UserMultiDropdown.tsx
-// Multi-select dropdown with infinite scroll for Preferred Departments.
-// Fetches from https://dummyjson.com/users
-//
-// Each item displays: avatar + first+last name + company + email
-// Supports multi-selection — selected items shown as chips in trigger.
-
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
@@ -60,7 +53,6 @@ export function UserMultiDropdown({ value, onChange, error }: UserMultiDropdownP
     if (open && items.length === 0) {
       loadMore(0, []);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   useEffect(() => {
@@ -75,7 +67,6 @@ export function UserMultiDropdown({ value, onChange, error }: UserMultiDropdownP
     );
     observerRef.current.observe(sentinelRef.current);
     return () => observerRef.current?.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, hasMore, isLoading, page, items]);
 
   useEffect(() => {

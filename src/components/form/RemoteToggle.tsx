@@ -1,7 +1,3 @@
-// src/components/form/RemoteToggle.tsx
-// Visually styled Yes/No toggle for "Available for Remote" field.
-// NOT a default radio button — styled as pill toggle buttons per spec.
-
 'use client';
 
 import Box from '@mui/material/Box';
