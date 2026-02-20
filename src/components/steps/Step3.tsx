@@ -1,8 +1,3 @@
-// src/components/steps/Step3.tsx
-// Step 3: Additional Details
-// Fields: Short Bio (min 50 / max 300), Preferred Departments (multi-select users),
-//         Portfolio URL, Agree to Terms
-
 'use client';
 
 import { useForm, Controller, FormProvider, useWatch } from 'react-hook-form';
